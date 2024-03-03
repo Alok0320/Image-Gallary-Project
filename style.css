@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* box size remain same applying margin or padding */
+    box-sizing: border-box; 
+}
+
+#wrapper{
+    height: 100vh;
+    /* right side scroll nhi hoga */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body{
+    font-family: "poppins", sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    height: 100%;
+    max-width: 1200px;
+    /* below code is for center the container left and right margin will be same, content comes in center  */
+    margin: 0 auto;
+    padding: 20px; /* space between border and content */
+}
+
+.container h1{
+    margin: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+.gallery{
+    display: flex;
+    /* to place element vertically if vo same row mein place nhi ho rhe */
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card{
+    width: 32%;
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card img {
+    /* card's height and width will be inherited aka (.card img)*/
+    height: 100%;
+    width: 100%;
+    filter: grayscale(100%);
+    box-shadow: 0 0 20px #333;
+    object-fit: cover;
+}
+
+.card:hover {
+    /* Zoom-out */
+    transform: scale(1.03);
+    /* to make shaadow while zoom out */
+    filter: drop-shadow(0 0 10px #333);
+    /* time taken in zooming out */
+    transition: 0.3s;
+}
+
+.card:hover img{
+    filter: grayscale(0%);
+}
+
+.card figcaption{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    /* card ka 100% */
+    width: 100%;
+    height: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    opacity: 0;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+    transition: 0.3s;
+}
+
+.card:hover figcaption{
+    /* Text will be visible */
+    opacity: 1;
+    transform: scale(1.03);
+}
